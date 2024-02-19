@@ -81,7 +81,8 @@ public class SolrSearchEngine implements SearchEngine {
 			
 			css.info("Set up the Solr search engine; URL = '" + solrServerUrlString + "'.");
 		} catch (Exception e) {
-			css.fatal("Could not set up the Solr search engine", e);
+			//css.fatal("Could not set up the Solr search engine", e);
+	                css.info("Could not set up the Solr search engine", e);
 		}
 	}
 
