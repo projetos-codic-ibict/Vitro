@@ -58,12 +58,12 @@ public class SolrSearchEngine implements SearchEngine {
 		try {
 			HttpSolrClient.Builder builder = new HttpSolrClient.Builder(solrServerUrlString);
 
-			builder.withSocketTimeout(10000); // socket read timeout
-			builder.withConnectionTimeout(10000);
+			builder.withSocketTimeout(500); // socket read timeout
+			builder.withConnectionTimeout(500);
 
 			HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
-			httpClientBuilder.setMaxConnPerRoute(100);
-			httpClientBuilder.setMaxConnTotal(100);
+			httpClientBuilder.setMaxConnPerRoute(0);
+			httpClientBuilder.setMaxConnTotal(0);
 			httpClientBuilder.setRetryHandler(new StandardHttpRequestRetryHandler(1, false));
 
 			builder.withHttpClient(httpClientBuilder.build());
